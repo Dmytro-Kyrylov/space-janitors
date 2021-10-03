@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--@version $Id: BasicExample.html 3314 2015-07-10 18:28:45Z dcollins $-->
+
+<html lang="en">
+<head>
+    <!--NOTE: Most Web World Wind examples use jquery, Bootstrap and requirejs but those technologies are NOT-->
+    <!--required by Web World Wind. See SimplestExample.html for an example of using Web World Wind without them.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="perfectscrollbar/perfect-scrollbar.jquery.min.js"></script>
+    <title>GRAPHS</title>
+</head>
+<body>
+    <style>
+        .container-name div { 
+            display: inline-block; 
+            width: 700px; 
+            min-height: 50px; 
+            background-color: #eee; 
+            height: auto; 
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        } 
+
+        .container-name img {
+            max-height: 500px;
+            height: 70%;
+            width: auto;
+        }
+
+        .div1 .div2 {
+            
+        }
+    </style>
+
+    <div class="container-name"> 
+        <div class="div1">
+            <div style="border: 1px solid red;">
+                <img src="images/Graphs/img3.jpg" alt="Error">
+                <span style="border: 1px solid green;">
+                    Number of objects per altitude interval (50 km step)
+                </span>
+            </div>
+            <div style="border: 1px solid red;">
+                <img src="images/Graphs/img1.jpg" alt="Error">
+                <span style="border: 1px solid green;">
+                    Standard deviation of debris altitude (Iridium 33)
+                </span>
+            </div>
+        </div> 
+        <div class="div2">
+            <div style="border: 1px solid red;">
+                <img src="images/Graphs/img4.jpg" alt="Error">
+                <span style="border: 1px solid green;">
+                    Altitude density (number of objects per space volume)
+                </span>
+            </div>
+            <div style="border: 1px solid red;">
+                <img src="images/Graphs/img2.jpg" alt="Error">
+                <span style="border: 1px solid green;">
+                    Standard deviation of debris altitude (Cosmos 2251)
+                </span>
+            </div>
+        </div> 
+    </div> 
+</body>
+</html>

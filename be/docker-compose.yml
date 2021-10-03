@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  app:
+    image: 'sj-be:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sj-be
+    ports:
+      - "5001:5001"
+    depends_on:
+      - sj-db
+    links:
+      - sj-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://sj-db:5432/sj
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+    restart: on-failure
+
+  sj-db:
+    ports:
+      - "5444:5432"
+    image: 'postgres:13.1-alpine'
+    container_name: sj-db
+    environment:
+      - POSTGRES_DB=sj
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data

@@ -1,0 +1,23 @@
+
+server:
+  port: 5001
+
+spring:
+  application:
+    name: sj-be
+  profiles:
+    active: dev
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    connect-retries: 10
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sj
+    username: postgres
+    password: root
+    hikari:
+      pool-name: SJ-DB
+
+app:
+  ml:
+    url: http://localhost:5000
