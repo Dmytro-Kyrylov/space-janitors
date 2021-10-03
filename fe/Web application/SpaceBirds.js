@@ -1910,6 +1910,7 @@ async function getDebris(active, groundStations) {
           //   altitude: satPac[j].height * 1000
           // }
         } catch (err) {
+          everyCurrentPosition.push(new WorldWind.Position(0, 0, 0))
           console.log(err + ' in renderSats, sat ' + j +  " " + satPac[j].OBJECT_NAME);
           continue;
         }
@@ -1918,6 +1919,7 @@ async function getDebris(active, groundStations) {
           currentPosition = new WorldWind.Position(position.latitude,
             position.longitude,
             position.altitude);
+
         everyCurrentPosition.push(currentPosition);
         satSite.push(satData[j].LAUNCH_SITE);
         satNames.push(satData[j].norad);
@@ -2000,12 +2002,12 @@ async function getDebris(active, groundStations) {
           WorldWind.OFFSET_FRACTION, 1.0);
         placemarkAttributes.labelAttributes.color = WorldWind.Color.WHITE;
 
-        if (!everyCurrentPosition[j]){
+        if (!currentPosition){
           console.warn("Failed to calculate position ", j)
           continue;
         }
 
-        var placemark = new WorldWind.Placemark(everyCurrentPosition[j]);
+        var placemark = new WorldWind.Placemark(currentPosition);
         placemark.altitudeMode = WorldWind.RELATIVE_TO_GROUND;
         placemark.attributes = placemarkAttributes;
         placemark.highlightAttributes = highlightPlacemarkAttributes;
